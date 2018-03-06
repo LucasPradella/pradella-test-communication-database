@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactory",
-    basePackages = {"com.foobar.foo.repo"})
+    basePackages = {"br.com.pradella.um.repo"})
 public class ConexaoUm {
 
   @Primary
@@ -35,7 +35,7 @@ public class ConexaoUm {
   @Bean(name = "entityManagerFactory")
   public LocalContainerEntityManagerFactoryBean entityManagerFactory(
       EntityManagerFactoryBuilder builder, @Qualifier("dataSource") DataSource dataSource) {
-    return builder.dataSource(dataSource).packages("com.foobar.foo.domain").persistenceUnit("usuarioDois")
+    return builder.dataSource(dataSource).packages("br.com.pradella.um.domain").persistenceUnit("conexaoUm")
         .build();
   }
 
